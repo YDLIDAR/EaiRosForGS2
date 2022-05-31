@@ -1,7 +1,7 @@
 # Copyright(c) 2020 eaibot limited.
 cmake_minimum_required(VERSION 2.8)
 
-project(ydlidar_ros_driver)
+project(ydlidar_ros_driver_gs2)
 
 
 ############## YDLIDAR SDK START#####################################
@@ -65,8 +65,7 @@ add_subdirectory(sdk)
 #Include directories 
 include_directories(
 	${catkin_INCLUDE_DIRS}
-	${PROJECT_SOURCE_DIR}/sdk
-	${PROJECT_SOURCE_DIR}/sdk/core
+	${PROJECT_SOURCE_DIR}/sdk/include
 	${PROJECT_SOURCE_DIR}/sdk/src
 )
 
@@ -89,7 +88,7 @@ add_executable(${PROJECT_NAME}_node src/ydlidar_ros_driver.cpp)
 #---------------------------------------------------------------------------------------
 target_link_libraries(${PROJECT_NAME}_node
 	${catkin_LIBRARIES}
-	ydlidar_sdk
+	ydlidar_sdk_gs2
 	)
 
 
