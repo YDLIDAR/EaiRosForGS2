@@ -6,7 +6,7 @@ project(ydlidar_ros_driver)
 
 ############## YDLIDAR SDK START#####################################
 #find ydlidar_sdk package
-find_package(ydlidar_sdk REQUIRED)
+#find_package(ydlidar_sdk REQUIRED)
 
 ############## YDLIDAR SDK END#####################################
 
@@ -39,8 +39,11 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects als    o need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(CATKIN_DEPENDS
-	roscpp rospy sensor_msgs message_runtime
+catkin_package(CATKIN_DEPENDS 
+	roscpp
+	rospy 
+	sensor_msgs 
+	message_runtime
 	)
 #---------------------------------------------------------------------------------------
 # Set default build to release
@@ -56,12 +59,19 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-#Include directories
-include_directories(${catkin_INCLUDE_DIRS} ${YDLIDAR_SDK_INCLUDE_DIRS})
+#
+add_subdirectory(sdk)
+
+#Include directories 
+include_directories(
+	${catkin_INCLUDE_DIRS}
+	${PROJECT_SOURCE_DIR}/sdk
+	${PROJECT_SOURCE_DIR}/sdk/core
+	${PROJECT_SOURCE_DIR}/sdk/src
+)
 
 #link library directories
 link_directories(${YDLIDAR_SDK_LIBRARY_DIRS})
-
 
 
 #---------------------------------------------------------------------------------------
@@ -79,7 +89,7 @@ add_executable(${PROJECT_NAME}_node src/ydlidar_ros_driver.cpp)
 #---------------------------------------------------------------------------------------
 target_link_libraries(${PROJECT_NAME}_node
 	${catkin_LIBRARIES}
-	${YDLIDAR_SDK_LIBRARIES}
+	ydlidar_sdk
 	)
 
 

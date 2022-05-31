@@ -28,7 +28,7 @@
 //#include "ydlidar_ros_driver/LaserFan.h"
 #include "std_srvs/Empty.h"
 #include "src/CYdLidar.h"
-#include "ydlidar_config.h"
+//#include "ydlidar_config.h"
 #include <limits>       // std::numeric_limits
 
 #define SDKROSVerision "1.0.2"
