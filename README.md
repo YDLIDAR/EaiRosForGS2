@@ -47,8 +47,8 @@ ydlidar_ros_driver depends on YDLidar-SDK library. If you have never installed Y
 
 5. Create serial port Alias [optional] 
     ```
-	$chmod 0777 src/ydlidar_ros_driver/startup/*
-	$sudo sh src/ydlidar_ros_driver/startup/initenv.sh
+	$chmod 0777 src/EaiRosForGS2/startup/*
+	$sudo sh src/EaiRosForGS2/startup/initenv.sh
     ```
     Note: After completing the previous operation, replug the LiDAR again.
 	
@@ -59,25 +59,12 @@ ydlidar_ros_driver depends on YDLidar-SDK library. If you have never installed Y
 
 The command format is : 
 
- `roslaunch ydlidar_ros_driver [launch file]`
+ `roslaunch EaiRosForGS2 [launch file]`
 
-1. Connect Triangle LiDAR uint(s).
+1. Connect GS2 LiDAR uint(s).
    ```
-   # G4, G5
-   roslaunch ydlidar_ros_driver lidar_view.launch 
-   ```
-
-2. Connect to TOF LiDAR uint(s).
-   ```
-   # TG15, TG30, TG50
-   roslaunch ydlidar_ros_driver TG.launch 
-   # TX8, TX20
-   roslaunch ydlidar_ros_driver TX.launch 
-   ```
-3. Connect to TOF NET LiDAR uint(s).
-   ```
-   # T5, T15
-   roslaunch ydlidar_ros_driver T15.launch 
+   # GS2
+   roslaunch EaiRosForGS2 GS2.launch 
    ```
 
 #####  Launch file introduction

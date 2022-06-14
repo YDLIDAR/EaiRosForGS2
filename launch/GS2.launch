@@ -1,5 +1,5 @@
 <launch>
-  <node name="ydlidar_lidar_publisher"  pkg="ydlidar_ros_driver_gs2"  type="ydlidar_ros_driver_gs2_node" output="screen" respawn="false" >
+  <node name="ydlidar_lidar_publisher" pkg="ydlidar_ros_driver_gs2" type="ydlidar_ros_driver_gs2_node" output="screen" respawn="false">
     <!-- string property -->
     <param name="port"         type="string" value="/dev/ydlidar"/>  
     <param name="frame_id"     type="string" value="laser_frame"/>
