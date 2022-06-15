@@ -15,6 +15,7 @@ ydlidar_ros_driver depends on YDLidar-SDK library. If you have never installed Y
 1. Clone ydlidar_ros_driver package for github : 
 
    `git clone https://github.com/YDLIDAR/EaiRosForGS2.git ydlidar_ws/src/EaiRosForGS2`
+
    `git clone https://github.com/YDLIDAR/EaiSdkForGS2.git ydlidar_ws/src/EaiRosForGS2/sdk`
 
 2. Build ydlidar_ros_driver package :
@@ -23,9 +24,6 @@ ydlidar_ros_driver depends on YDLidar-SDK library. If you have never installed Y
    cd ydlidar_ws
    catkin_make
    ```
-   <font color=Red size=4>>Note: If the following error occurs, Please install  [YDLIDAR/YDLidar-SDK](https://github.com/YDLIDAR/YDLidar-SDK) first.</font>
-
-   ![CMAKE ERROR](images/cmake_error.png  "CMAKE ERROR")
 
 3. Package environment setup :
 
@@ -59,12 +57,12 @@ ydlidar_ros_driver depends on YDLidar-SDK library. If you have never installed Y
 
 The command format is : 
 
- `roslaunch EaiRosForGS2 [launch file]`
+ `roslaunch ydlidar_ros_driver_gs2 [launch file]`
 
 1. Connect GS2 LiDAR uint(s).
    ```
    # GS2
-   roslaunch EaiRosForGS2 GS2.launch 
+   roslaunch ydlidar_ros_driver_gs2 GS2.launch 
    ```
 
 #####  Launch file introduction
