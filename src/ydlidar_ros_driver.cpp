@@ -100,7 +100,7 @@ int main(int argc, char **argv)
   laser.setMaxAngle(180);
   laser.setMinAngle(-180);
 
-  //unit: m
+  //unit: mm
   laser.setMinRange(30);
   laser.setMaxRange(1000);
 
@@ -145,8 +145,8 @@ int main(int argc, char **argv)
       scan_msg.angle_increment = (scan.config.angle_increment);
       scan_msg.scan_time = scan.config.scan_time;
       scan_msg.time_increment = scan.config.time_increment;
-      scan_msg.range_min = (scan.config.min_range);
-      scan_msg.range_max = (scan.config.max_range);
+      scan_msg.range_min = (scan.config.min_range/1000.0);
+      scan_msg.range_max = (scan.config.max_range/1000.0);
 //      fan.angle_min = (scan.config.min_angle);
 //      fan.angle_max = (scan.config.max_angle);
 //      fan.scan_time = scan.config.scan_time;
@@ -171,7 +171,7 @@ int main(int argc, char **argv)
 
         if (index >= 0 && index < size) {
           if (scan.points[i].range >= scan.config.min_range) {
-            scan_msg.ranges[index] = scan.points[i].range;
+            scan_msg.ranges[index] = scan.points[i].range/1000.0;
             scan_msg.intensities[index] = scan.points[i].intensity;
           }
         }
@@ -180,8 +180,8 @@ int main(int argc, char **argv)
             (scan.points[i].range >= scan.config.min_range &&
              scan.points[i].range <= scan.config.max_range)) {
           geometry_msgs::Point32 point;
-          point.x = scan.points[i].range * cos(scan.points[i].angle);
-          point.y = scan.points[i].range * sin(scan.points[i].angle);
+          point.x = scan.points[i].range/1000.0 * cos(scan.points[i].angle);
+          point.y = scan.points[i].range/1000.0 * sin(scan.points[i].angle);
           point.z = 0.0;
           pc_msg.points.push_back(point);
           pc_msg.channels[idx_intensity].values.push_back(scan.points[i].intensity);
